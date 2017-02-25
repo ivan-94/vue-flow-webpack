@@ -1,0 +1,21 @@
+[ignore]
+.*/node_modules/.*
+.*/build/.*
+.*/test/.*
+.*/config/.*
+.*/static/.*
+
+[include]
+
+[libs]
+flow/
+node_modules/vue-flow-definitions/definitions/
+
+[options]
+module.file_ext=.vue
+module.file_ext=.js
+esproposal.decorators=ignore
+# webpack module alias
+module.name_mapper='^src/\(.*\)$' -> '<PROJECT_ROOT>/src/\1'
+module.name_mapper='^assets/\(.*\)$' -> '<PROJECT_ROOT>/src/assets/\1'
+module.name_mapper='^components/\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1'

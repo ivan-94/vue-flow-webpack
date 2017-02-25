@@ -1,3 +1,4 @@
+/* @flow
 <template>
   <div id="app">
     <img src="./assets/logo.png">
@@ -8,20 +9,32 @@
     {{/router}}
   </div>
 </template>
+*/
 
-<script>
+// <script>
+import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Component from 'vue-class-component'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#unless router}}
 import Hello from './components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-
 {{/unless}}
-export default {
-  name: 'app'{{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
+
+// flow can't check decorator currently
+@Component({
+  name: 'app'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+})
+export default class App extends Vue {
+  foo () {
+    // $FlowFixMe
+    this.$data(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  }
+  {{#unless router}}
   components: {
     Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
+  }{{/unless}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-</script>
+// .</script>
 
+/*
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -32,3 +45,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+*/

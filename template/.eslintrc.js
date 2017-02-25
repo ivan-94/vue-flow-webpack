@@ -11,14 +11,15 @@ module.exports = {
   },
   {{#if_eq lintConfig "standard"}}
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
-  extends: 'standard',
+  extends: ['standard', 'plugin:flowtype/recommended'],
   {{/if_eq}}
   {{#if_eq lintConfig "airbnb"}}
-  extends: 'airbnb-base',
+  extends: ['airbnb-base', 'plugin:flowtype/recommended'],
   {{/if_eq}}
   // required to lint *.vue files
   plugins: [
-    'html'
+    'html',
+    'flowtype'
   ],
   {{#if_eq lintConfig "airbnb"}}
   // check if imports actually resolve

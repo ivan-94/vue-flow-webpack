@@ -3,7 +3,7 @@
     ["es2015", { "modules": false }],
     "stage-2"
   ],
-  "plugins": ["transform-runtime"],
+  "plugins": ["transform-runtime", "transform-flow-strip-types", "transform-decorators-legacy", "transform-class-properties"],
   "comments": false,
   "env": {
     "test": {
